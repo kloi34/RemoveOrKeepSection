@@ -1,9 +1,9 @@
--- RemoveOrKeepSection v1 (27 March 2021)
+-- RemoveOrKeepSection v1 (6 April 2021)
 
 -- original code made by IceDynamix on a phone and posted on the Quaver Discord
 --
--- (kloi34) fixed if condition test of "remove section", added current buttons, spruced up the UI,
---    made the "keep section" option, and added the option to remove SVs and timing points
+-- (kloi34) added current buttons, spruced up the UI, made the "remove section" option, and added
+--    the option to remove SVs and timing points
 
 ---------------------------------------------------------------------------------------------------
 -- Variables
@@ -108,7 +108,7 @@ function removeStuff(removeNotes, removeTimingPoints, removeSVs, startOffset, en
         local timingPointsToDelete = thingsToRemove(startOffset, endOffset, keepSection, map.TimingPoints)
         -- if we want to keep a section and there are timing points outside the section
         if keepSection and #timingPointsToDelete > 0 then
-            -- don't remove the last timing point that occurs before the section
+            -- don't delete the last timing point outside the section
             table.remove(timingPointsToDelete, #timingPointsToDelete)
         end
         actions.RemoveTimingPointBatch(timingPointsToDelete)
